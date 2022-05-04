@@ -4,9 +4,14 @@ $noticiaControl = new NoticiaControl();
 
 header('Content-Type: application/json');
 
-foreach($noticiaControl->findAll() as $valor){
-	echo json_encode($valor);
+echo "[";
+$dados = $noticiaControl->findAll();
+for($i = 0; $i < count($dados); $i++){
+	echo json_encode($dados[$i]);
+	if ($i != count($dados)-1)
+		echo ",";
 }
+echo "]";
 
 
 ?>
