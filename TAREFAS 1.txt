@@ -1,6 +1,7 @@
 TAREFA #1:
 Observe o modelo abaixo, nota-se que ele possui Fonte e Link. 
-Modifique o projeto para considerar esses dois parâmetros (Fonte e Link) e teste usando a extensão RESTED do Firefox.
+Modifique o projeto para considerar esses dois parâmetros (Fonte e Link) 
+e teste usando a extensão RESTED do Firefox.
 
 TAREFA #2:
 Usando essa API, crie uma página com HTML, CSS e Javascript para mostrar a lista de notícias 

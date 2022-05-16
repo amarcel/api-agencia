@@ -6,6 +6,8 @@ class Noticia {
 	private $titulo;
     private $texto;
     private $horario;
+    private $fonte;
+    private $link;
 
     function getId() {
         return $this->id;
@@ -21,6 +23,14 @@ class Noticia {
 
     function getHorario() {
         return $this->horario;
+    }
+
+    function getFonte() {
+        return $this->fonte;
+    }
+
+    function getLink() {
+        return $this->link;
     }
 
     function setId($id) {
@@ -39,21 +49,36 @@ class Noticia {
         $this->horario = $horario;
     }
 
+    function setFonte($fonte) {
+        $this->fonte = $fonte;
+    }
+
+    function setLink($link) {
+        $this->link = $link;
+    }
+
     public function insert($dados){
-    	$sql = "INSERT INTO noticia(titulo,texto,horario) VALUES (:titulo,:texto,:horario)";
+    	$sql = "INSERT INTO noticia(titulo,texto,fonte,link,horario) 
+        VALUES (:titulo,:texto,:fonte,:link,:horario)";
     	$consulta = Conexao::getInstance()->prepare($sql);
         $consulta->bindValue('titulo',  $dados['titulo']);
         $consulta->bindValue('texto', $dados['texto']);
+        $consulta->bindValue('fonte', $dados['fonte']);
+        $consulta->bindValue('link', $dados['link']);
         $consulta->bindValue('horario' , $dados['horario']);
     	return $consulta->execute();
 
 	}
 
 	public function update($dados, $id){
-		$sql = "UPDATE noticia SET titulo = :titulo, texto = :texto,horario = :horario WHERE id = :id ";
+		$sql = "UPDATE noticia SET titulo = :titulo, texto = :texto, 
+        fonte = :fonte, link = :link,
+        horario = :horario WHERE id = :id ";
 		$consulta = Conexao::getInstance()->prepare($sql);
 		$consulta->bindValue('titulo', $dados['titulo']);
 		$consulta->bindValue('texto', $dados['texto']);
+        $consulta->bindValue('fonte', $dados['fonte']);
+        $consulta->bindValue('link', $dados['link']);
 		$consulta->bindValue('horario' , $dados['horario']);
 		$consulta->bindValue('id', $id);
 		return $consulta->execute();
