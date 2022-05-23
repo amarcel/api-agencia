@@ -1,0 +1,11 @@
+body {
+    font-family: Arial;
+}
+
+.box_noticia {
+    border-radius: 20px;
+    border-style: solid;
+    border-color: lightgrey;
+    margin: 20px;
+    padding: 20px;
+}

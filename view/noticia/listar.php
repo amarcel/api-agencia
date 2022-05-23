@@ -2,6 +2,7 @@
 include '../../control/NoticiaControl.php';
 $noticiaControl = new NoticiaControl();
 
+header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 echo "[";
